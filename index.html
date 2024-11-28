@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Snake Game</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="game-container">
+		<canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
+	</div>
+	<div class="keys">
+	  <a class="up arr" onclick="Snake.action('up')">
+	    <i class="chevron up"></i></a>
+	  <br />
+	  <a class="left arr" onclick="Snake.action('left')">
+	    <i class="chevron left"></i></a>
+	  <a class="down arr" onclick="Snake.action('down')">
+	    <i class="chevron down"></i></a>
+	  <a class="right arr" onclick="Snake.action('right')">
+	    <i class="chevron right"></i></a>
+	</div>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pemesanan Zepeto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulir Pemesanan Zepeto</h1>
+    <div class="form-container">
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="idZepeto">ID Zepeto:</label>
+                <input type="text" id="idZepeto" name="idZepeto" required>
+            </div>
+            <div class="form-group">
+                <label for="usernameZepeto">Username Zepeto:</label>
+                <input type="text" id="usernameZepeto" name="usernameZepeto" required>
+            </div>
+            <div class="form-group">
+                <label for="pesanan">Pesanan Berupa:</label>
+                <select id="pesanan" name="pesanan" required>
+                    <option value="Top Up">Top Up</option>
+                    <option value="Followers">Followers</option>
+                    <option value="Likes">Likes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="jumlahPesanan">Jumlah Pesanan:</label>
+                <input type="number" id="jumlahPesanan" name="jumlahPesanan" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment (QRIS):</label>
+                <input type="text" id="payment" name="payment" placeholder="QR Code" value="QR Code Only" readonly required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kirim Pemesanan">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var idZepeto = document.getElementById('idZepeto').value;
+            var usernameZepeto = document.getElementById('usernameZepeto').value;
+            var pesanan = document.getElementById('pesanan').value;
+            var jumlahPesanan = document.getElementById('jumlahPesanan').value;
+            var payment = document.getElementById('payment').value;
+
+            // Menampilkan data yang diisi oleh pengguna di konsol (Untuk pengujian)
+            console.log({
+                "Id Zepeto": idZepeto,
+                "Username Zepeto": usernameZepeto,
+                "Pesanan Berupa": pesanan,
+                "Jumlah Pesanan": jumlahPesanan,
+                "Payment": payment
+            });
+
+            alert("Formulir telah dikirim!");  // Feedback ke pengguna
+        });
+    </script>
+</body>
+</html>
